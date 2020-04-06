@@ -1,0 +1,14 @@
+Package: rougeR
+Type: Package
+Title: A Package for Automatic Evaluation of Summaries
+Version: 0.1.0
+Author: L. J. Covington, Jr. <LJCovington@usf.edu>
+Maintainer: L. J. Covington, Jr. <LJCovington@usf.edu>
+Description: More about what it does (maybe more than one line)
+    Use four spaces when indenting paragraphs within the Description.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.1.0
+Imports: 
+    ngram
