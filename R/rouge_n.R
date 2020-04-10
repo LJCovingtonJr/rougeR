@@ -14,9 +14,15 @@ rouge_n <- function(candidate, reference, n){
   reference_ng <- ngram::ngram(reference, n=n)
 
   candidate_ngrams <- ngram::get.ngrams(candidate_ng)
-  referenece_ngrams <- ngram::get.ngrams(reference_ng)
+  reference_ngrams <- ngram::get.ngrams(reference_ng)
 
-  result <- (sum(candidate_ngrams %in% reference_ngrams)/length(reference_ngrams))
+  overlap <- sum(candidate_ngrams %in% reference_ngrams)
+
+  recall <- (overlap/length(reference_ngrams))
+  precision <- (overlap/length(candidate_ngrams))
+  f_measure <- f_measure(recall, precision)
+
+  result <- data.frame(recall, precision, f_measure)
   return(result)
 }
 

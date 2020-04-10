@@ -1,11 +1,12 @@
 Package: rougeR
 Type: Package
 Title: A Package for Automatic Evaluation of Summaries
-Version: 0.1.0
+Version: 0.0.0.9001
 Author: L. J. Covington, Jr. <LJCovington@usf.edu>
 Maintainer: L. J. Covington, Jr. <LJCovington@usf.edu>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
+Description: An R implementation of the ROUGE
+    Package for Automatic Evaluation of
+    Summaries.  See: Lin, 2004 for more info.
 License: MIT
 Encoding: UTF-8
 LazyData: true
