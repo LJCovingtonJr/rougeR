@@ -1,9 +1,10 @@
 Package: rougeR
 Type: Package
 Title: A Package for Automatic Evaluation of Summaries
-Version: 0.0.0.9001
-Author: L. J. Covington, Jr. <LJCovington@usf.edu>
-Maintainer: L. J. Covington, Jr. <LJCovington@usf.edu>
+Version: 0.0.0.9002
+Author: L. J. Covington Jr. <LJCovington@usf.edu>
+Maintainer: L. J. Covington Jr. <LJCovington@usf.edu>
+Date: 2020-04-06
 Description: An R implementation of the ROUGE
     Package for Automatic Evaluation of
     Summaries.  See: Lin, 2004 for more info.
