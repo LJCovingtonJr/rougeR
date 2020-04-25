@@ -1,7 +1,7 @@
 Package: rougeR
 Type: Package
 Title: A Package for Automatic Evaluation of Summaries
-Version: 0.0.0.9003
+Version: 0.0.0.9004
 Author: L. J. Covington Jr. <LJCovington@usf.edu>
 Maintainer: L. J. Covington Jr. <LJCovington@usf.edu>
 Date: 2020-04-06
@@ -15,3 +15,5 @@ RoxygenNote: 7.1.0
 Imports: 
     ngram,
     tokenizers
+Depends:
+  R (>= 2.10)
