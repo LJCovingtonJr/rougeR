@@ -2,4 +2,6 @@
 
 export(multi_rouge_n)
 export(rouge_n)
+export(rouge_s)
 import(ngram)
+import(tokenizers)

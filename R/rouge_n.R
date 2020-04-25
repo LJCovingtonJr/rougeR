@@ -1,15 +1,14 @@
-#' Rouge N
+#' Rouge-N: N-gram Co-occurrence Statistics
 #'
-#' Takes a candidate summary, reference summary, and n value.  Returns a ROUGE score for the given N.
+#' Takes a candidate summary, reference summary, and n value, returning the associated ROUGE-N recall, precision, and F values.
 #' @param candidate the candidate (usually machine generated) summary
 #' @param reference the reference (usually human written) summary
 #' @param n the number of grams to be considered.  eg. n = 2 considers bigrams, generating a ROUGE-2 score.
-#' @return The ROUGE-N score
+#' @return a dataframe, consisting of a single observation and three variables: recall, precision, and f_measure.
 #' @import ngram
 #' @export
 
 rouge_n <- function(candidate, reference, n){
-
   candidate_ng <- ngram::ngram(candidate, n=n)
   reference_ng <- ngram::ngram(reference, n=n)
 

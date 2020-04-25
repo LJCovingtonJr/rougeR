@@ -2,7 +2,7 @@
 % Please edit documentation in R/rouge_n.R
 \name{rouge_n}
 \alias{rouge_n}
-\title{Rouge N}
+\title{Rouge-N: N-gram Co-occurrence Statistics}
 \usage{
 rouge_n(candidate, reference, n)
 }
@@ -14,8 +14,8 @@ rouge_n(candidate, reference, n)
 \item{n}{the number of grams to be considered.  eg. n = 2 considers bigrams, generating a ROUGE-2 score.}
 }
 \value{
-The ROUGE-N score
+a dataframe, consisting of a single observation and three variables: recall, precision, and f_measure.
 }
 \description{
-Takes a candidate summary, reference summary, and n value.  Returns a ROUGE score for the given N.
+Takes a candidate summary, reference summary, and n value, returning the associated ROUGE-N recall, precision, and F values.
 }
