@@ -48,6 +48,8 @@ This vignette takes advantage of a dataset included with the rougeR package.  Th
 * `summary` is a human written summary of said article.
 * `textrank` is a summary generated for this project via the textrank algorithm.
 
+The data is from Kaggle, and can be found at https://www.kaggle.com/pariza/bbc-news-summary
+
 ## Calculating ROUGE-N
 `rouge_n()` is rougeR's primary method for calculating ROUGE-N statistics.  It accepts a candidate and reference summary, as well as a value for *n*.
 
