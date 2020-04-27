@@ -3,12 +3,12 @@
 #' Takes a candidate summary, reference summary, and n value, returning the associated ROUGE-N recall, precision, and F values.
 #' @param candidate the candidate (usually machine generated) summary
 #' @param reference the reference (usually human written) summary
-#' @param n the number of grams to be considered.  eg. n = 2 considers bigrams, generating a ROUGE-2 score.
+#' @param n the number of grams to be considered, default 1.
 #' @return a dataframe, consisting of a single observation and three variables: recall, precision, and f_measure.
 #' @import ngram
 #' @export
 
-rouge_n <- function(candidate, reference, n){
+rouge_n <- function(candidate, reference, n = 1){
   candidate_ng <- ngram::ngram(candidate, n=n)
   reference_ng <- ngram::ngram(reference, n=n)
 

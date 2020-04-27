@@ -1,0 +1,84 @@
+---
+title: "rougeR: An R Package for Automatic Evaluation of Summaries"
+author: L. J. Covington, Jr.
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{rougeR}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+## Installing and setting up rougeR
+
+It may be safe to say that if one is reading this, one has already installed rougeR.  If you haven't, though, use the following code.
+
+```{r, eval=FALSE}
+devtools::install_github("LJCovingtonJr/rougeR")
+```
+
+rougeR can be activated with the following:
+```{r setup}
+library(rougeR)
+```
+
+## What is ROUGE?
+
+ROUGE stands for Recall Oriented Understudy for Gisting Evaluation.  It is a set of formulas used to evaluate automated document summarization systems.  Based on BLEU &mdash; which is used to evaluate machine translations &mdash; ROUGE consists of the following:
+
+* **ROUGE-N** compares n-grams between the candidate (computer-generated) and reference (usually human-written) summaries.
+* **ROUGE-L** refers to longest common subsequence-based statistics.  
+* **ROUGE-W** refers to weighted LCS-based statistics that favors consecutive LCSes
+* **ROUGE-S** compares the co-occurence of skip-bigrams between the candidate and reference summaries.
+* **ROUGE-SU** is an extension of ROUGE-S that takes unigram co-occurrence into account.
+
+rougeR currently supports ROUGE-N and -S calculations.
+
+## Included data
+This vignette takes advantage of a dataset included with the rougeR package.  The dataset is a subset (100 observations) of a larger dataset of BBC News articles.  It can be found at `rougeR/data/data.rda` and consists of three variables:
+
+* `article` is the full text of the BBC News article.
+* `summary` is a human written summary of said article.
+* `textrank` is a summary generated for this project via the textrank algorithm.
+
+## Calculating ROUGE-N
+`rouge_n()` is rougeR's primary method for calculating ROUGE-N statistics.  It accepts a candidate and reference summary, as well as a value for *n*.
+
+```{r}
+load("~/GitHub/rougeR/data/data.rda")
+candidate <- data$summary[1]
+reference <- data$textrank[1]
+n <- 2
+
+rouge_n(candidate, reference, n)
+```
+
+As you can see, the `rouge_n()` function returns a dataframe with three values: `recall`, `precision`, and `f_measure`.  See Lin, 2004 for more information about interpreting these values.
+
+For more robust analysis, some researchers may compare a single candidate summary to multiple reference summaries.  In rougeR, this can be accomplished with `multi_rouge_n()`.  `multi_rouge_n()` accepts the same values as `rouge_n()`, but can accept a character vector of multiple candidate summaries.
+
+
+## Calculating ROUGE-S
+`rouge_s()` is rougeR's function for calculating ROUGE-S statistics.  It accepts a candidate and reference summary, as well as a maximum skip distance (default 1). `rouge_s()` also accepts another value: `beta`, which is a measure of the importance of precision in relation to recall in calculating the F-measure.  The default is 1, implying equal importance.
+
+```{r}
+load("~/GitHub/rougeR/data/data.rda")
+candidate <- data$summary[2]
+reference <- data$textrank[2]
+k <- 1
+beta <- 1
+
+rouge_s(candidate, reference, k, beta)
+```
+
+In your research, some analysis may be necessary to determine the ideal values of k and beta.  See Lin, 2004 for more information on interpreting these values.
+
+## Reference
+Lin, C., 2004. ROUGE: A Package for Automatic Evaluation of Summaries. [online] Barcelona, Spain: Association for Computational Linguistics, pp.74-81. Available at: https://www.aclweb.org/anthology/W04-1013/.

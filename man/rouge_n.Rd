@@ -4,14 +4,14 @@
 \alias{rouge_n}
 \title{Rouge-N: N-gram Co-occurrence Statistics}
 \usage{
-rouge_n(candidate, reference, n)
+rouge_n(candidate, reference, n = 1)
 }
 \arguments{
 \item{candidate}{the candidate (usually machine generated) summary}
 
 \item{reference}{the reference (usually human written) summary}
 
-\item{n}{the number of grams to be considered.  eg. n = 2 considers bigrams, generating a ROUGE-2 score.}
+\item{n}{the number of grams to be considered, default 1.}
 }
 \value{
 a dataframe, consisting of a single observation and three variables: recall, precision, and f_measure.

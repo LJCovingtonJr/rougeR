@@ -16,4 +16,8 @@ Imports:
     ngram,
     tokenizers
 Depends:
-  R (>= 2.10)
+  R (>= 3.6.0)
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

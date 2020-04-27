@@ -22,7 +22,7 @@ rouge_s <- function(candidate, reference, k = 1, beta = 1){
   reference_combination <- factorial(reference_length)/(factorial(k)^2)
 
   recall <- overlap/reference_combination
-  precision <- overlap/reference_combination
+  precision <- overlap/candidate_combination
   f_measure <- ((1+beta^2)*recall*precision)/(recall+(beta^2)*precision)
 
   result <- data.frame(recall, precision, f_measure)
