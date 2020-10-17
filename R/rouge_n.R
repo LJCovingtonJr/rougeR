@@ -5,15 +5,12 @@
 #' @param reference the reference (usually human written) summary
 #' @param n the number of grams to be considered, default 1.
 #' @return a dataframe, consisting of a single observation and three variables: recall, precision, and f_measure.
-#' @import ngram
+#' @import tokenizers
 #' @export
 
 rouge_n <- function(candidate, reference, n = 1){
-  candidate_ng <- ngram::ngram(candidate, n=n)
-  reference_ng <- ngram::ngram(reference, n=n)
-
-  candidate_ngrams <- ngram::get.ngrams(candidate_ng)
-  reference_ngrams <- ngram::get.ngrams(reference_ng)
+  candidate_ngrams <- unlist(tokenizers::tokenize_ngrams(candidate, n=n))
+  reference_ngrams <- unlist(tokenizers::tokenize_ngrams(reference, n=n))
 
   overlap <- sum(candidate_ngrams %in% reference_ngrams)
 

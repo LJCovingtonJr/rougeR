@@ -4,6 +4,7 @@
 #' @param recall a single recall value
 #' @param precision a single precision value
 #' @return The F1-score
+#' @export
 #'
 
 f_measure <- function(recall, precision){
