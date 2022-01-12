@@ -24,14 +24,14 @@ It may be safe to say that if one is reading this, one has already installed rou
 devtools::install_github("LJCovingtonJr/rougeR")
 ```
 
-rougeR can be activated with the following:
+rougeR can then be activated with the following:
 ```{r setup}
 library(rougeR)
 ```
 
 ## What is ROUGE?
 
-ROUGE stands for Recall Oriented Understudy for Gisting Evaluation.  It is a set of formulas used to evaluate automated document summarization systems.  Based on BLEU &mdash; which is used to evaluate machine translations &mdash; ROUGE consists of the following:
+ROUGE stands for **R**ecall **O**riented **U**nderstudy for **G**isting **E**valuation.  It is a set of formulas used to evaluate automated document summarization systems.  Based on BLEU &mdash; which is used to evaluate machine translations &mdash; ROUGE consists of the following:
 
 * **ROUGE-N** compares n-grams between the candidate (computer-generated) and reference (usually human-written) summaries.
 * **ROUGE-L** refers to longest common subsequence-based statistics.  
@@ -62,7 +62,7 @@ n <- 2
 rouge_n(candidate, reference, n)
 ```
 
-As you can see, the `rouge_n()` function returns a dataframe with three values: `recall`, `precision`, and `f_measure`.  See Lin, 2004 for more information about interpreting these values.
+As you can see, the `rouge_n()` function returns a dataframe with three values: `recall`, `precision`, and `f_measure`.  See Lin (2004) for more information about interpreting these values.
 
 For more robust analysis, some researchers may compare a single candidate summary to multiple reference summaries.  In rougeR, this can be accomplished with `multi_rouge_n()`.  `multi_rouge_n()` accepts the same values as `rouge_n()`, but can accept a character vector of multiple candidate summaries.
 
@@ -80,7 +80,7 @@ beta <- 1
 rouge_s(candidate, reference, k, beta)
 ```
 
-In your research, some analysis may be necessary to determine the ideal values of k and beta.  See Lin, 2004 for more information on interpreting these values.
+In your research, some analysis may be necessary to determine the ideal values of k and beta.  See Lin(2004) for more information on interpreting these values.
 
 ## Reference
 Lin, C., 2004. ROUGE: A Package for Automatic Evaluation of Summaries. [online] Barcelona, Spain: Association for Computational Linguistics, pp.74-81. Available at: https://www.aclweb.org/anthology/W04-1013/.
